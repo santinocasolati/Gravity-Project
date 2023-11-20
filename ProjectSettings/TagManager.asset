@@ -14,7 +14,7 @@ TagManager:
   - Collidable
   - Player
   - Bounds
-  - 
+  - Bullet
   - 
   - 
   - 

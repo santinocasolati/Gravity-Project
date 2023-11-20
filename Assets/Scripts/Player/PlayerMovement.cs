@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private PlayerShoot playerShoot;
+
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
-
     public float groundCheckDistance = 0.1f;
 
     private Rigidbody2D rb;
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         moveTowards = transform.right;
         jumpTowards = transform.up;
+        playerShoot.SetDirection(moveTowards);
     }
 
     void FixedUpdate()
@@ -69,5 +71,8 @@ public class PlayerMovement : MonoBehaviour
     {
         moveTowards = move;
         jumpTowards = jump;
+
+        //TODO change direction with player rotation
+        playerShoot.SetDirection(moveTowards);
     }
 }
